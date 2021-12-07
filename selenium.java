@@ -11,13 +11,14 @@ public class selenium {
 	// TODO Auto-generated method stub
 		
 	System.setProperty("webdriver.chrome.driver","C:\\Users\\Acerek\\Documents\\chromedriver_win32\\chromedriver.exe");
-	WebDriver d=new ChromeDriver();
-		d.get("https://www.phptravels.net/login");
-		d.findElement(By.id("email")).sendKeys("user@phptravels.com");
-		d.findElement(By.id("password")).sendKeys("demouser");
-		d.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/form/div[3]/button")).click();
-		String u=d.getCurrentUrl();
-		if(u.equals("https://www.phptravels.net/account/dashboard"))
+	WebDriver driver=new ChromeDriver();
+		driver.get("https://www.phptravels.net/login");
+		driver.findElement(By.id("email")).sendKeys("user@phptravels.com");
+		driver.findElement(By.id("password")).sendKeys("demouser");
+		driver.findElement(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/form/div[3]/button")).click();
+		String resultUrl=driver.getCurrentUrl();
+		
+		if(resultUrl.equals("https://www.phptravels.net/account/dashboard"))
 		{
 			System.out.println("Test Case Passed");
 		}
@@ -25,7 +26,7 @@ public class selenium {
 		{
 			System.out.println("Test Case Failed");
 		}
-	d.close();
+	driver.close();
 		
 		
 		
